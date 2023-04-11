@@ -22,12 +22,10 @@ print(bin_to_dec('101010'))  # 输出：42
 def dec_to_bin(num):
     """
     将十进制数转换为二进制数
-
-    :param num: 要转换的十进制数，必须是非负整数
+    :param num: 要转换的十进制数，str
     :return: 转换后的二进制数，返回值类型为str
     """
-    if not isinstance(num, int) or num < 0:
-        raise ValueError('The input num must be a non-negative integer.')
+    num = int(num)
     if num == 0:
         return '0'
     bin_num = ''
@@ -35,12 +33,12 @@ def dec_to_bin(num):
         bin_num = str(num % 2) + bin_num
         num //= 2
     return bin_num
-print(dec_to_bin(42))  # 输出：101010
+print(dec_to_bin('42'))  # 输出：101010
 # 使用说明：
-# 该函数接受一个参数：要转换的十进制数。如果输入的数字不是非负整数，则会引发ValueError异常。
-# 当输入的数字是非负整数时，函数会使用循环计算出对应的二进制数。具体地，函数使用一个空字符串
-# 变量bin_num来记录二进制数，从低位到高位依次计算每一位的值，并将其添加到bin_num的前面。当
-# 计算完所有位后，函数返回bin_num作为结果。
+# 该函数接受一个参数：要转换的十进制数。
+# 输入的数字需要为字符串类型时，需要先将其转换为整型，之后函数会使用循环计算出对应的二进制数。具体地，函数使用一个空字符串
+# 变量bin_num来记录二进制数，从低位到高位依次计算每一位的值，并将其添加到bin_num的前面。当计算完所有位后，函数返回bin_num作为结果。
+
 # 3.二进制转十六进制
 def bin_to_hex(num):
     """
