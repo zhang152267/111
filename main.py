@@ -1,25 +1,23 @@
 # 1.二进制转十进制
+
 def bin_to_dec(num):
     """
     将二进制数转换为十进制数
-    :param num: 要转换的二进制数，可以是int或str类型
-    :return: 转换后的十进制数，返回值类型为int
+    :param num: 要转换的二进制数，str类型
+    :return: 转换后的十进制数，返回值类型为str
     """
-    if isinstance(num, str):
-        num = [int(digit) for digit in num]
-    elif not isinstance(num, int):
-        raise TypeError('The input num must be an integer or a string representing an integer.')
+    num = [int(digit) for digit in num]
+
     dec_num = 0
     for digit in num:
         dec_num = dec_num * 2 + digit
-    return dec_num
+    return str(dec_num)
 print(bin_to_dec('101010'))  # 输出：42
 # 使用说明：
-# 函数接受一个参数：要转换的二进制数。如果输入的数字是字符串类型，则函数会将其转换为整数
-# 类型；如果输入的数字既不是整数类型也不是字符串类型，则会引发TypeError异常。
-# 当输入的数字是整数类型或字符串类型时，函数会先将其转换为一个由每一位数字组成的列表（如
-# 果输入的是整数，则先将其转换为字符串类型再处理）。接着，函数使用循环遍历每一位数字，并
-# 根据其在二进制数中的位置计算出对应的10进制数，最后将所有位的十进制值相加得到结果。
+# 函数接受一个参数：要转换的二进制数。
+# 输入的数字需要为字符串类型时，函数会先将其转换为一个由每一位数字组成的列表。接着，函数使用循环遍历每一位数字，并
+# 根据其在二进制数中的位置计算出对应的10进制数，将所有位的十进制值相加得到结果，最后将结果转换为字符串类型输出。
+
 # 2.十进制转二进制
 def dec_to_bin(num):
     """
